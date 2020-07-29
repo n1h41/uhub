@@ -148,13 +148,14 @@
         </div>
       </div>
       <div class="row">
+        {% for i in obj %}
         <div class="col-lg-6">
-          <a href="portfolio-single.html" class="work-thumb">
+          <a href="{% url 'portfolio-single' pk=i.id %}" class="work-thumb">
             <div class="work-text">
-              <h2>Mum's Daily</h2>
-              <p>Ebook Design</p>
+              <h2>{{ i.project_name }}</h2>
+              <p>{{ i.project_role }}</p>
             </div>
-            <img src="../static/images/work_1.png" alt="Image" class="img-fluid">
+            <img src="{{ i.project_cover_image.url }}" alt="Image" class="img-fluid">
           </a>
           <!--<a href="portfolio-single.html" class="work-thumb">
             <div class="work-text">
@@ -162,9 +163,10 @@
               <p>Category Here</p>
             </div>
             <img src="images/work_4.jpg" alt="Image" class="img-fluid">
-          </a>
+          </a>-->
         </div>
-        <div class="col-lg-6">
+        {% endfor %}
+        <!--<div class="col-lg-6">
           <a href="portfolio-single.html" class="work-thumb">
             <div class="work-text">
               <h2>Work Name Here</h2>
