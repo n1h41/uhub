@@ -20,7 +20,7 @@ def services(request):
 
 def portfolio_single(request, pk):
     obj = get_object_or_404(project_upload, pk=pk)
-    return render(request, 'test.html', {'obj':obj})
+    return render(request, 'portfolio-single.html', {'obj':obj})
 
 def team(request):
     return render(request, 'team.html')
